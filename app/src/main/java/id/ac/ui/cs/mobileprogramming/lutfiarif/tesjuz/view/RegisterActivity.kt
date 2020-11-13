@@ -1,4 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view
 
-class RegisterActivity {
+import androidx.appcompat.app.AppCompatActivity
+
+class RegisterActivity: AppCompatActivity() {
 }
