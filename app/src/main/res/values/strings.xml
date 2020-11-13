@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Tes Juz</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="create_account">Don\'t have an account yet? Create one.</string>
+    <string name="username">Username</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="back_to_login">Already have an account? Sign in.</string>
 </resources>
