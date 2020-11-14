@@ -23,11 +23,11 @@ class LoginActivity: AppCompatActivity() {
             val isValid = userViewModel.isValidCredential(editTextUserName.text.toString(), editTextPassword.text.toString())
             if (isValid) {
                 getSharedPreferences("Tes Juz", Context.MODE_PRIVATE).edit().putBoolean("isLogin", true).apply()
-                Toast.makeText(baseContext, "Successfully Logged In!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, R.string.success_login, Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else {
-                Toast.makeText(baseContext, "Invalid login! Please try again.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, R.string.invalid_login, Toast.LENGTH_SHORT).show()
             }
         }
 

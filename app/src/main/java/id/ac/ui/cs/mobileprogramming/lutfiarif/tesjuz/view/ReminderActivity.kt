@@ -31,10 +31,10 @@ class ReminderActivity: AppCompatActivity() {
 
                 NotificationReminderUtils().setNotification(this)
 
-                Toast.makeText(this, "Reminder set successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.success_reminder, Toast.LENGTH_SHORT).show()
                 finish()
             } else {
-                Toast.makeText(this, "Please choose minimum 1 day schedule!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.fail_reminder, Toast.LENGTH_SHORT).show()
             }
         }
 

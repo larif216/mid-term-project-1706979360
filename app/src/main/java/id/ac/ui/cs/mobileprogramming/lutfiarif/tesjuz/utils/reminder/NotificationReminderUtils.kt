@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
 import java.util.*
 
 class NotificationReminderUtils {
@@ -45,8 +46,8 @@ class NotificationReminderUtils {
             val alarmManager = context?.getSystemService(Activity.ALARM_SERVICE) as AlarmManager
             val alarmIntent = Intent(context, AlarmReminderReceiver::class.java)
             val sharedPref = context!!.getSharedPreferences("Tes Juz", Context.MODE_PRIVATE)
-            alarmIntent.putExtra("title", "Reminder")
-            alarmIntent.putExtra("message", "It's Quran Time! Don't forget to interact with Quran today.")
+            alarmIntent.putExtra("title", R.string.reminder)
+            alarmIntent.putExtra("message", R.string.reminder_message)
             alarmIntent.putExtra("notificationId", dayOfWeek)
             val pendingIntent = PendingIntent.getBroadcast(context, dayOfWeek, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT)
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY * 7, pendingIntent)

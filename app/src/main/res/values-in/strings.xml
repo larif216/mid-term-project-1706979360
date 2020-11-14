@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Tes Juz</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="login">Masuk</string>
+    <string name="create_account">Belum memiliki akun? </string>
+    <string name="username">Nama Pengguna</string>
+    <string name="sign_up">Daftar</string>
+    <string name="back_to_login">Masuk.</string>
+    <string name="move_to_register">Buat akun.</string>
+    <string name="have_account">Sudah memiliki akun?</string>
+    <string name="confirm_password">Konfirmasi Kata Sandi</string>
+    <string name="set_reminder">Atur Pengingat</string>
+    <string name="quotes_reminder">\"Konsistensi adalah Kunci\"</string>
+    <string name="remind_me_to_murajaah_at">Ingatkan saya untuk murajaah:</string>
+    <string name="repeat">Ulangi</string>
+    <string name="success_login">Berhasil masuk!</string>
+    <string name="invalid_login">Gagal masuk! Coba lagi.</string>
+    <string name="empty_fields_toast">Mohon untuk mengisi semua kolom!</string>
+    <string name="password_not_match">Kata sandi tidak sama!</string>
+    <string name="username_is_exist">Nama pengguna sudah digunakan!</string>
+    <string name="success_register">Berhasil mendaftar!</string>
+    <string name="success_reminder">Berhasil mengatur pengingat</string>
+    <string name="fail_reminder">Mohon untuk memilih minimal 1 hari!</string>
+    <string name="reminder">Pengingat</string>
+    <string name="reminder_message">Waktunya Quran Time! Jangan lupa memurajaah hafalanmu.</string>
+</resources>
