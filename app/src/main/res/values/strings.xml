@@ -3,8 +3,11 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="create_account">Don\'t have an account yet? Create one.</string>
+    <string name="create_account">Don\'t have an account yet? </string>
     <string name="username">Username</string>
     <string name="sign_up">Sign Up</string>
-    <string name="back_to_login">Already have an account? Sign in.</string>
+    <string name="back_to_login">Sign in.</string>
+    <string name="move_to_register">Create one.</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="confirm_password">Confirm Password</string>
 </resources>

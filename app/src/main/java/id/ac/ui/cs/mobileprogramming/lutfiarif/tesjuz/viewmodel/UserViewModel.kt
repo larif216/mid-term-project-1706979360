@@ -8,7 +8,7 @@ import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.repositories.UserRepositor
 
 class UserViewModel(context: Context): ViewModel() {
     private val userRepository: UserRepository =
-        UserRepository.getInstance(TesJuzDatabase.getTesJuzDatabase(context).UserDao())
+        UserRepository.getInstance(TesJuzDatabase.getTesJuzDatabase(context).userDao())
 
     internal fun createUser(username: String, password: String) {
         userRepository.insert(username, password)

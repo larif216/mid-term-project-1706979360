@@ -84,14 +84,14 @@
                 android:id="@+id/editTextConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/password"
+                android:hint="@string/confirm_password"
                 android:textColor="@android:color/white"
                 android:inputType="textPassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/buttonLogin"
+            android:id="@+id/buttonRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -101,14 +101,33 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white"/>
 
-        <TextView
-            android:id="@+id/textViewCreateAccount"
+        <LinearLayout
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal"
-            android:textColor="@android:color/white"
-            android:text="@string/back_to_login"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|end"
+                android:textColor="@android:color/white"
+                android:text="@string/have_account"/>
+
+            <TextView
+                android:id="@+id/textViewBackToLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:textStyle="bold"
+                android:layout_marginStart="5dp"
+                android:textColor="@color/colorAccent"
+                android:text="@string/back_to_login"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

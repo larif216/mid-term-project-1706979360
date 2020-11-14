@@ -1,15 +1,18 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.repositories
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.dao.UserDao
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.UserModel
 
-class UserRepository(private val userDao: UserDao) {
+class UserRepository private constructor(private val userDao: UserDao) {
     private val user: LiveData<UserModel>? = null
 
     fun isValidAccount(username: String, password: String): Boolean {
         val user = userDao.getUser(username)
-        return user.password == password
+
+        return if (user != null) user.password == password
+        else false
     }
 
     fun insert(username: String, password: String) {

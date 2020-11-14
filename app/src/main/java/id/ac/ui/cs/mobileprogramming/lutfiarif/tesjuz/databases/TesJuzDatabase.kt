@@ -1,6 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.databases
 
 import android.content.Context
+import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -13,7 +14,7 @@ import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.UserModel
     version = 1
 )
 abstract class TesJuzDatabase: RoomDatabase() {
-    abstract fun UserDao(): UserDao
+    abstract fun userDao(): UserDao
 
     companion object {
         private var instance: TesJuzDatabase? = null
@@ -25,7 +26,7 @@ abstract class TesJuzDatabase: RoomDatabase() {
                         context.applicationContext,
                         TesJuzDatabase::class.java,
                         "tes_juz_database"
-                    ).build()
+                    ).allowMainThreadQueries().build()
                 }
             }
             return instance!!
