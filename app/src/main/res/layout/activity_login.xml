@@ -59,7 +59,7 @@
             android:textColorHint="@android:color/white"
             app:errorEnabled="true"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="@color/colorAccent">
+            app:passwordToggleTint="@android:color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPassword"

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.databases.TesJuzDatabase
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.UserModel
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.repositories.UserRepository
 
 class UserViewModel(context: Context): ViewModel() {
@@ -16,6 +17,10 @@ class UserViewModel(context: Context): ViewModel() {
 
     internal fun isValidCredential(username: String, password: String): Boolean {
         return userRepository.isValidAccount(username, password)
+    }
+
+    internal fun getUser(username: String): UserModel? {
+        return userRepository.get(username)
     }
 
     class Factory internal constructor(context: Context): ViewModelProvider.Factory {

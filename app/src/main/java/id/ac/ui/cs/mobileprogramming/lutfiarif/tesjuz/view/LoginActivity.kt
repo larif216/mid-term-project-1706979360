@@ -20,7 +20,7 @@ class LoginActivity: AppCompatActivity() {
         val userViewModel = ViewModelProviders.of(this, UserViewModel.Factory(applicationContext)).get(UserViewModel::class.java)
 
         buttonLogin.setOnClickListener {
-            val isValid = userViewModel.isValidCredential(editTextUserName.toString(), editTextPassword.toString())
+            val isValid = userViewModel.isValidCredential(editTextUserName.text.toString(), editTextPassword.text.toString())
             if (isValid) {
                 getSharedPreferences("Tes Juz", Context.MODE_PRIVATE).edit().putBoolean("isLogin", true).apply()
                 Toast.makeText(baseContext, "Successfully Logged In!", Toast.LENGTH_SHORT).show()
@@ -31,6 +31,8 @@ class LoginActivity: AppCompatActivity() {
             }
         }
 
-
+        textViewCreateAccount.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
     }
 }

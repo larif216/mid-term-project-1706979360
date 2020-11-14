@@ -20,6 +20,10 @@ class UserRepository private constructor(private val userDao: UserDao) {
         userDao.insert(newUser)
     }
 
+    fun get(username: String): UserModel? {
+        return userDao.getUser(username)
+    }
+
     companion object {
         private var instance: UserRepository? = null
 
