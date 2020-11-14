@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import ca.antonious.materialdaypicker.MaterialDayPicker
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.utils.reminder.NotificationReminderUtils
 import kotlinx.android.synthetic.main.activity_reminder.*
 import java.util.*
 
@@ -27,6 +28,9 @@ class ReminderActivity: AppCompatActivity() {
                 val days = sharedPref.edit().putString("reminderDays", getDays(dayPicker.selectedDays)).apply()
                 val hour = sharedPref.edit().putInt("reminderHour", timePicker.hour.toInt()).apply()
                 val minute = sharedPref.edit().putInt("reminderMinute", timePicker.minute.toInt()).apply()
+
+                NotificationReminderUtils().setNotification(this)
+
                 Toast.makeText(this, "Reminder set successfully", Toast.LENGTH_SHORT).show()
                 finish()
             } else {
