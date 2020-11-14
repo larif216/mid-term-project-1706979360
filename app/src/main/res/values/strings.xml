@@ -10,4 +10,8 @@
     <string name="move_to_register">Create one.</string>
     <string name="have_account">Already have an account?</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="set_reminder">Set Reminder</string>
+    <string name="quotes_reminder">\"Consistency is The Key\"</string>
+    <string name="remind_me_to_murajaah_at">Remind me to murajaah at:</string>
+    <string name="repeat">Repeat</string>
 </resources>

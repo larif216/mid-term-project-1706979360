@@ -9,7 +9,9 @@ object AppPreferences {
     private lateinit var preferences: SharedPreferences
 
     private val IS_LOGIN = Pair("is_login", false)
-    private val USERNAME = Pair("username", "")
+    private val REMINDER_DAYS = "reminderDays"
+    private val REMINDER_HOUR = "reminderHour"
+    private val REMINDER_MINUTE = "reminderMinute"
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)
@@ -25,5 +27,23 @@ object AppPreferences {
         get() = preferences.getBoolean(IS_LOGIN.first, IS_LOGIN.second)
         set(value) = preferences.edit {
             it.putBoolean(IS_LOGIN.first, value)
+        }
+
+    var reminderDays: String?
+        get() = preferences.getString(REMINDER_DAYS, "")
+        set(value) = preferences.edit {
+            it.putString(REMINDER_DAYS, value)
+        }
+
+    var reminderHour: Int
+        get() = preferences.getInt(REMINDER_HOUR, -1)
+        set(value) = preferences.edit {
+            it.putInt(REMINDER_HOUR, value)
+        }
+
+    var reminderMinute: Int
+        get() = preferences.getInt(REMINDER_MINUTE, -1)
+        set(value) = preferences.edit {
+            it.putInt(REMINDER_MINUTE, value)
         }
 }
