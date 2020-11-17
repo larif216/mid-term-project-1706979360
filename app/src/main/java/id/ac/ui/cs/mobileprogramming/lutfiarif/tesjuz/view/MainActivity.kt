@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.fragments.JuzListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
             finish()
         } else {
             setContentView(R.layout.activity_main)
+            supportFragmentManager.beginTransaction()
+                .add(R.id.fragment_container, JuzListFragment())
+                .commit()
         }
 
     }
