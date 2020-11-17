@@ -1,5 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.fragments
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.adapters.JuzRecyclerViewAdapter
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.JuzWithAyah
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.MainActivity
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.viewmodel.JuzViewModel
 
 class JuzListFragment: Fragment(), JuzRecyclerViewAdapter.OnJuzClickListener {
@@ -40,6 +42,5 @@ class JuzListFragment: Fragment(), JuzRecyclerViewAdapter.OnJuzClickListener {
     override fun onJuzClick(juzData: JuzWithAyah) {
         viewModel = ViewModelProviders.of(this, context?.let { JuzViewModel.Factory(it) }).get(JuzViewModel::class.java)
         val data = viewModel.getJuzWithAyah(juzData.juz.number)
-        Log.d("JuzData", data.ayahs.size.toString())
     }
 }

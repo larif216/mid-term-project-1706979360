@@ -14,44 +14,36 @@ import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.network.ConnectivityHelper
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.concurrent.CountDownLatch
 
 class JuzRepository private constructor(private val juzDao: JuzDao, private val ayahDao: AyahDao, private val context: Context){
     fun getJuzWithAyah(juzNumber: Int): JuzWithAyah {
         val juzData = juzDao.getJuzWithAyahByNumber(juzNumber)
         if (juzData.ayahs.isEmpty() && ConnectivityHelper().isConnectedToNetwork(context)) {
+            val countDownLatch = CountDownLatch(1)
             val apiInterface = ApiClient.getApiClient().create(ApiInterface::class.java)
             val call = apiInterface.getJuzData(juzNumber)
-            val response = call.execute()
-            val data = response.body()?.data
-            for (ayah in data!!.ayahs) {
-                ayahDao.insert(
-                    AyahModel(
-                        text = ayah.text,
-                        surah = ayah.surah.englishName,
-                        number = ayah.numberInSurah,
-                        juzNumber = juzNumber
-                    )
-                )
-            }
-//            call.enqueue(object: Callback<JuzResponse> {
-//                override fun onResponse(call: Call<JuzResponse>, response: Response<JuzResponse>) {
-//                    val data = response.body()?.data
-//                    for (ayah in data!!.ayahs) {
-//                        ayahDao.insert(
-//                            AyahModel(
-//                                text = ayah.text,
-//                                surah = ayah.surah.englishName,
-//                                number = ayah.numberInSurah,
-//                                juzNumber = juzNumber
-//                            )
-//                        )
-//                    }
-//                }
-//
-//                override fun onFailure(call: Call<JuzResponse>, t: Throwable) {
-//                    Toast.makeText(context, "Fail to fetch data from server", Toast.LENGTH_SHORT).show()
-//                }
-//            })
+            call.enqueue(object: Callback<JuzResponse> {
+                override fun onResponse(call: Call<JuzResponse>, response: Response<JuzResponse>) {
+                    val data = response.body()?.data
+                    for (ayah in data!!.ayahs) {
+                        ayahDao.insert(
+                            AyahModel(
+                                text = ayah.text,
+                                surah = ayah.surah.englishName,
+                                number = ayah.numberInSurah,
+                                juzNumber = juzNumber
+                            )
+                        )
+                    }
+                    countDownLatch.countDown()
+                }
+
+                override fun onFailure(call: Call<JuzResponse>, t: Throwable) {
+                    Toast.makeText(context, "Fail to fetch data from server", Toast.LENGTH_SHORT).show()
+                }
+            })
+            countDownLatch.await()
         }
         return juzDao.getJuzWithAyahByNumber(juzNumber)
     }
