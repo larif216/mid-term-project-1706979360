@@ -9,7 +9,7 @@ import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.JuzWithAyah
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.repositories.JuzRepository
 
 class JuzViewModel(context: Context): ViewModel() {
-    private val juzRepository = JuzRepository.getInstance(TesJuzDatabase.getTesJuzDatabase(context).juzDao())
+    private val juzRepository = JuzRepository.getInstance(TesJuzDatabase.getTesJuzDatabase(context).juzDao(), TesJuzDatabase.getTesJuzDatabase(context).ayahDao(), context)
 
     internal fun getJuzWithAyah(juzNumber: Int): JuzWithAyah {
         return juzRepository.getJuzWithAyah(juzNumber)

@@ -1,6 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,8 @@ class JuzListFragment: Fragment(), JuzRecyclerViewAdapter.OnJuzClickListener {
     }
 
     override fun onJuzClick(juzData: JuzWithAyah) {
-        Toast.makeText(context, "Clicked juz ${juzData.juz.number}", Toast.LENGTH_SHORT).show()
+        viewModel = ViewModelProviders.of(this, context?.let { JuzViewModel.Factory(it) }).get(JuzViewModel::class.java)
+        val data = viewModel.getJuzWithAyah(juzData.juz.number)
+        Log.d("JuzData", data.ayahs.size.toString())
     }
 }
