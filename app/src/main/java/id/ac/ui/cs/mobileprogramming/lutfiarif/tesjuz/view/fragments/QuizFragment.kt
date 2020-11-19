@@ -104,9 +104,20 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
         }
 
         if (ayahCounter == 8) {
-            questionNumber++
-            currentAyah = -1
-            ayahCounter = 0
+            if (questionNumber == 5) {
+                val fragment = QuizResultFragment()
+                val args = Bundle()
+                args.putInt("juzNumber", juzData.juz.number)
+                args.putInt("score", score)
+                fragment.arguments = args
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .add(R.id.fragment_quiz_container, fragment)
+                    .commit()
+            } else {
+                questionNumber++
+                currentAyah = -1
+                ayahCounter = 0
+            }
         } else {
             ayahCounter++
         }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/score"
+        android:gravity="center"
+        android:textSize="44sp"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="78"
+        android:textColor="@android:color/white"
+        android:textSize="144sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/btn_reattempt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/try_again"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:background="@color/colorAccent"
+        android:padding="12dp"
+        android:layout_marginTop="18dp"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btn_back_to_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/back_to_home"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:background="@color/colorAccent"
+        android:padding="12dp"
+        android:layout_marginTop="18dp"
+        android:textSize="18sp"/>
+
+</LinearLayout>

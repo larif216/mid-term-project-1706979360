@@ -30,4 +30,8 @@
     <string name="option_c">Option C</string>
     <string name="option_d">Option D</string>
     <string name="the_next_ayah_is">The Next Ayah is:</string>
+    <string name="score">Score</string>
+    <string name="reattempt_quiz">Reattempt Quiz</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="try_again">Try Again</string>
 </resources>
