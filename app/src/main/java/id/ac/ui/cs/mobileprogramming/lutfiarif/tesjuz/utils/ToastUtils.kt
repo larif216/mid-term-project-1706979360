@@ -8,7 +8,7 @@ import android.widget.Toast
 
 class ToastUtils(
     private val context: Context,
-    private val text: String,
+    private val text: Int,
     private val type: Int
 ) {
     fun show() {

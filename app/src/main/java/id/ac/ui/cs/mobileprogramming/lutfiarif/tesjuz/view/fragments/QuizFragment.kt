@@ -97,14 +97,14 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
 
     override fun onOptionClick(option: QuestionModel.Option) {
         if (option.isAnswer) {
-            ToastUtils(context!!, "Your answer is Correct", 1).show()
+            ToastUtils(context!!, R.string.correct, 1).show()
         } else {
             score--
-            ToastUtils(context!!, "Your answer is Wrong", 0).show()
+            ToastUtils(context!!, R.string.wrong, 0).show()
         }
 
         if (ayahCounter == 8) {
-            if (questionNumber == 1) {
+            if (questionNumber == 5) {
                 val fragment = QuizResultFragment()
                 val args = Bundle()
                 args.putInt("juzNumber", juzData.juz.number)
@@ -112,7 +112,7 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
                 args.putInt("scoreId", arguments!!.getInt("scoreId"))
                 fragment.arguments = args
                 requireActivity().supportFragmentManager.beginTransaction()
-                    .add(R.id.fragment_quiz_container, fragment)
+                    .replace(R.id.fragment_quiz_container, fragment)
                     .commit()
             } else {
                 questionNumber++

@@ -25,7 +25,7 @@ class JuzRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val juz = juzList[position]
         holder.juzNumberTv.text = "Juz ${juz.juzId}"
-        var score = "Score: "
+        var score = ""
         score += if (juz.score == 0) {
             "-"
         } else {

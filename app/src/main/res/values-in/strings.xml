@@ -24,4 +24,17 @@
     <string name="fail_reminder">Mohon untuk memilih minimal 1 hari!</string>
     <string name="reminder">Pengingat</string>
     <string name="reminder_message">Waktunya Quran Time! Jangan lupa memurajaah hafalanmu.</string>
+    <string name="question">Pertanyaan</string>
+    <string name="option_a">Pilihan A</string>
+    <string name="option_b">Pilihan B</string>
+    <string name="option_c">Pilihan C</string>
+    <string name="option_d">Pilihan D</string>
+    <string name="the_next_ayah_is">Ayat selanjutnya adalah:</string>
+    <string name="score">Nilai</string>
+    <string name="reattempt_quiz">Tes lagi</string>
+    <string name="back_to_home">Kembali ke Daftar Juz</string>
+    <string name="try_again">Tes lagi</string>
+    <string name="correct">Jawaban kamu benar</string>
+    <string name="wrong">Jawaban kamu salah</string>
+    <string name="score_2">Nilai:</string>
 </resources>

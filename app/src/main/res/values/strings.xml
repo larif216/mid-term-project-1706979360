@@ -34,4 +34,7 @@
     <string name="reattempt_quiz">Reattempt Quiz</string>
     <string name="back_to_home">Back to Home</string>
     <string name="try_again">Try Again</string>
+    <string name="correct">Your answer is Correct</string>
+    <string name="wrong">Your answer is Wrong</string>
+    <string name="score_2">Score:</string>
 </resources>
