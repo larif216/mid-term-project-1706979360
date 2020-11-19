@@ -11,7 +11,7 @@ class ToastUtils(
     private val text: String,
     private val type: Int
 ) {
-    fun make(): Toast {
+    fun show() {
         val toast = Toast.makeText(context, text, Toast.LENGTH_SHORT)
 
         val color: Int = if (type == 0) {
@@ -29,6 +29,6 @@ class ToastUtils(
 
         val tv = view.findViewById<TextView>(android.R.id.message)
         tv.setTextColor(Color.WHITE)
-        return toast
+        toast.show()
     }
 }

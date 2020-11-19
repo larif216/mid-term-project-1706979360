@@ -97,12 +97,10 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
 
     override fun onOptionClick(option: QuestionModel.Option) {
         if (option.isAnswer) {
-            ToastUtils(context!!, "Your answer is Correct", 1).make().show()
-//            Toast.makeText(context, "Your answer is Correct", Toast.LENGTH_SHORT).show()
+            ToastUtils(context!!, "Your answer is Correct", 1).show()
         } else {
             score--
-            ToastUtils(context!!, "Your answer is Wrong", 0).make().show()
-//            Toast.makeText(context, "Your answer is Wrong", Toast.LENGTH_SHORT).show()
+            ToastUtils(context!!, "Your answer is Wrong", 0).show()
         }
 
         if (ayahCounter == 8) {
