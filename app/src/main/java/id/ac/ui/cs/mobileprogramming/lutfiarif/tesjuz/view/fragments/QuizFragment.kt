@@ -57,7 +57,7 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
                 tvQuestion = view.tvQuestion
                 rvOption = view.option
                 tvQuestion.text = question.question.text
-                rvOption.adapter = QuizRecyclerViewAdapter(question.option, this)
+                rvOption.adapter = adapter
             }
         }
 
@@ -104,11 +104,12 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
         }
 
         if (ayahCounter == 8) {
-            if (questionNumber == 5) {
+            if (questionNumber == 1) {
                 val fragment = QuizResultFragment()
                 val args = Bundle()
                 args.putInt("juzNumber", juzData.juz.number)
                 args.putInt("score", score)
+                args.putInt("scoreId", arguments!!.getInt("scoreId"))
                 fragment.arguments = args
                 requireActivity().supportFragmentManager.beginTransaction()
                     .add(R.id.fragment_quiz_container, fragment)

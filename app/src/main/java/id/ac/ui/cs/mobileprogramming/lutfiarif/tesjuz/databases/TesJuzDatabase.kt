@@ -8,21 +8,25 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.dao.AyahDao
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.dao.JuzDao
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.dao.ScoreDao
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.dao.UserDao
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.AyahModel
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.JuzModel
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.ScoreModel
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.UserModel
 import java.util.concurrent.Executors
 
 @Database(entities = [
     UserModel::class,
     JuzModel::class,
-    AyahModel::class
+    AyahModel::class,
+    ScoreModel::class
 ],
     version = 1
 )
 abstract class TesJuzDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun scoreDao(): ScoreDao
     abstract fun juzDao(): JuzDao
     abstract fun ayahDao(): AyahDao
 

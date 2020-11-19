@@ -3,7 +3,7 @@ package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models
 import androidx.room.*
 
 @Entity(
-    tableName = "juz_table"
+    tableName = "juz_table",
 )
 data class JuzModel(
     @PrimaryKey

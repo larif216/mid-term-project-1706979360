@@ -23,6 +23,7 @@ class LoginActivity: AppCompatActivity() {
             val isValid = userViewModel.isValidCredential(editTextUserName.text.toString(), editTextPassword.text.toString())
             if (isValid) {
                 getSharedPreferences("Tes Juz", Context.MODE_PRIVATE).edit().putBoolean("isLogin", true).apply()
+                getSharedPreferences("Tes Juz", Context.MODE_PRIVATE).edit().putString("username", editTextUserName.text.toString()).apply()
                 Toast.makeText(baseContext, R.string.success_login, Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()

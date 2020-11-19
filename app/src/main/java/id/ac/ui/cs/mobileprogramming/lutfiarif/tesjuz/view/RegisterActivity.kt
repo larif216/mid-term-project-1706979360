@@ -1,7 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -22,7 +21,7 @@ class RegisterActivity: AppCompatActivity() {
                 Toast.makeText(baseContext, R.string.empty_fields_toast, Toast.LENGTH_SHORT).show()
             } else if (editTextPassword.text.toString() != editTextConfirmPassword.text.toString()) {
                 Toast.makeText(baseContext, R.string.password_not_match, Toast.LENGTH_SHORT).show()
-            } else if (userViewModel.getUser(editTextUserName.text.toString()) != null) {
+            } else if (userViewModel.getUserWithScores(editTextUserName.text.toString()) != null) {
                 Toast.makeText(baseContext, R.string.username_is_exist, Toast.LENGTH_SHORT).show()
             } else {
                 userViewModel.createUser(editTextUserName.text.toString(), editTextPassword.text.toString())

@@ -1,15 +1,19 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
-import kotlinx.android.synthetic.main.activity_quiz.view.*
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_result_quiz.view.*
 
 class QuizResultFragment: Fragment() {
+
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,7 +25,16 @@ class QuizResultFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.score.text = arguments!!.getInt("score").toString()
+
+        val scoreId = arguments!!.getInt("scoreId")
+        val username = requireActivity().getSharedPreferences("Tes Juz", Context.MODE_PRIVATE).getString("username", "")
+        val score = arguments!!.getInt("score")
+        val juzNumber = arguments!!.getInt("juzNumber")
+
+        userViewModel = ViewModelProviders.of(this, context?.let { UserViewModel.Factory(it) }).get(UserViewModel::class.java)
+        userViewModel.updateScore(scoreId, username!!, score, juzNumber)
+
+        view.score.text = score.toString()
 
         view.btn_reattempt.setOnClickListener {
             val fragment = QuizFragment()

@@ -1,9 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.Index
-import androidx.room.PrimaryKey
+import androidx.room.*
 
 @Entity(tableName = "user_table", indices = arrayOf(
     Index(
@@ -13,7 +10,7 @@ import androidx.room.PrimaryKey
 ))
 data class UserModel (
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "Id")
+    @ColumnInfo(name = "id")
     var id:Int = 0,
 
     @ColumnInfo(name = "username")
@@ -21,4 +18,13 @@ data class UserModel (
 
     @ColumnInfo(name = "password")
     var password:String
+)
+
+data class UserWithScores (
+    @Embedded val user: UserModel,
+    @Relation (
+        parentColumn = "id",
+        entityColumn = "userId"
+    )
+    val scores: List<ScoreModel>
 )

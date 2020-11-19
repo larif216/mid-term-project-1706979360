@@ -12,6 +12,7 @@ class QuizActivity: AppCompatActivity() {
         val fragment = QuizFragment()
         val args = Bundle()
         args.putInt("juzNumber", intent.getIntExtra("juzNumber", -1))
+        args.putInt("scoreId", intent.getIntExtra("scoreId", -1))
         fragment.arguments = args
         supportFragmentManager.beginTransaction()
             .add(R.id.fragment_quiz_container, fragment)
