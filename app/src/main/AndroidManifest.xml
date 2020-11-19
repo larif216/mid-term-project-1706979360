@@ -32,6 +32,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".view.ReminderActivity"/>
+        <activity
+            android:name=".view.QuizActivity"/>
 
         <receiver android:name=".utils.reminder.AlarmReminderReceiver"
             android:enabled="true"

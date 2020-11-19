@@ -1,6 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.fragments
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Log
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.adapters.JuzRecyclerViewAdapter
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.JuzWithAyah
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.QuizActivity
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.viewmodel.JuzViewModel
 
 class JuzListFragment: Fragment(), JuzRecyclerViewAdapter.OnJuzClickListener {
@@ -66,15 +68,9 @@ class JuzListFragment: Fragment(), JuzRecyclerViewAdapter.OnJuzClickListener {
             if (result!!.ayahs.isEmpty()) {
                 Toast.makeText(context, "Failed to get juz data", Toast.LENGTH_SHORT).show()
             } else {
-                val quizFragment = QuizFragment()
-                val args = Bundle()
-                args.putInt("juzNumber", result.juz.number)
-                quizFragment.arguments = args
-                requireActivity().supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.fragment_container, quizFragment)
-                    .addToBackStack(null)
-                    .commit()
+                val intent = Intent(requireActivity(), QuizActivity::class.java)
+                intent.putExtra("juzNumber", result.juz.number)
+                startActivity(intent)
             }
         }
     }

@@ -3,7 +3,6 @@ package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.utils
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
-import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 
