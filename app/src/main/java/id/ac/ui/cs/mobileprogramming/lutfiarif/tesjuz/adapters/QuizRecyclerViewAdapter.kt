@@ -1,5 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.QuestionModel
 import kotlinx.android.synthetic.main.option.view.*
 
 class QuizRecyclerViewAdapter(
-    private val optionList: List<QuestionModel.Option>,
+    private var optionList: MutableList<QuestionModel.Option>,
     private val listener: OnOptionClickListener
 ): RecyclerView.Adapter<QuizRecyclerViewAdapter.ViewHolder>() {
 
@@ -27,6 +28,12 @@ class QuizRecyclerViewAdapter(
 
     override fun getItemCount(): Int {
         return optionList.size
+    }
+
+    fun updateData(newData: MutableList<QuestionModel.Option>) {
+        optionList.clear()
+        optionList.addAll(newData)
+        notifyDataSetChanged()
     }
 
     interface OnOptionClickListener {
