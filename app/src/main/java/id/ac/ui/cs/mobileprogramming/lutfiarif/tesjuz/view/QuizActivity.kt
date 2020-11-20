@@ -8,8 +8,6 @@ import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.fragments.QuizFragmen
 
 class QuizActivity: AppCompatActivity() {
 
-    private lateinit var quizFragment: QuizFragment
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
@@ -23,5 +21,7 @@ class QuizActivity: AppCompatActivity() {
                 .add(R.id.fragment_quiz_container, fragment)
                 .commit()
         }
+
+        supportActionBar?.title = "Tes Juz ${intent.getIntExtra("juzNumber", -1)}"
     }
 }

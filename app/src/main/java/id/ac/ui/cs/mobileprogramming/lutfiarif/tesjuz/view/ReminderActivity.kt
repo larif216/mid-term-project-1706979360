@@ -22,6 +22,8 @@ class ReminderActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reminder)
 
+        supportActionBar?.title = getString(R.string.set_reminder)
+
         initTime()
 
         if (savedInstanceState != null) {

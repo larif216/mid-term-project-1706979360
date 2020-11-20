@@ -40,4 +40,7 @@
     <string name="question_label">Pertanyaan</string>
     <string name="getting_juz_data">Menyiapkan data juz....</string>
     <string name="failed_to_get_juz_data">Gagal mendapatkan data juz</string>
+    <string name="alert_dialog_quit">Apakah kamu yakin ingin keluar? Progress kamu tidak akan tersimpan.</string>
+    <string name="yes">Iya</string>
+    <string name="no">Tidak</string>
 </resources>

@@ -39,16 +39,6 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
         super.onCreate(savedInstanceState)
         retainInstance = true
 
-        activity?.onBackPressedDispatcher?.addCallback(this, object: OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                val builder = AlertDialog.Builder(activity)
-                builder.setMessage("Are you sure you want quit? Your progress will be lost.")
-                builder.setPositiveButton("Yes"
-                ) { _, _ -> activity?.finish() }
-                builder.setNegativeButton("No", null)
-                builder.show()
-            }
-        })
     }
 
     override fun onCreateView(
@@ -63,6 +53,16 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
             currentAyah = savedInstanceState.getInt("currentAyah")
             question = savedInstanceState.getParcelable("question")!!
         }
+        activity?.onBackPressedDispatcher?.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val builder = AlertDialog.Builder(activity)
+                builder.setMessage(R.string.alert_dialog_quit)
+                builder.setPositiveButton(getString(R.string.yes)
+                ) { _, _ -> activity?.finish() }
+                builder.setNegativeButton(getString(R.string.no), null)
+                builder.show()
+            }
+        })
         return inflater.inflate(R.layout.fragment_quiz, container, false)
     }
 
