@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.utils.reminder
+package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.receiver
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -12,6 +12,7 @@ import android.graphics.Color
 import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.os.Build
+import android.util.Log
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.MainActivity
 

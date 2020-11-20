@@ -1,15 +1,16 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import ca.antonious.materialdaypicker.MaterialDayPicker
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
-import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.utils.reminder.NotificationReminderUtils
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.services.AlarmService
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.services.NotificationReminderUtils
 import kotlinx.android.synthetic.main.activity_reminder.*
 import java.util.*
 
@@ -30,6 +31,7 @@ class ReminderActivity: AppCompatActivity() {
                 val minute = sharedPref.edit().putInt("reminderMinute", timePicker.minute.toInt()).apply()
 
                 NotificationReminderUtils().setNotification(this)
+//                startService(Intent(this, AlarmService::class.java))
 
                 Toast.makeText(this, R.string.success_reminder, Toast.LENGTH_SHORT).show()
                 finish()

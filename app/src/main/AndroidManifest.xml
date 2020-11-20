@@ -35,7 +35,7 @@
         <activity
             android:name=".view.QuizActivity"/>
 
-        <receiver android:name=".utils.reminder.AlarmReminderReceiver"
+        <receiver android:name=".receiver.AlarmReminderReceiver"
             android:enabled="true"
             android:exported="false"
             android:process=":remote">
@@ -43,6 +43,12 @@
                 <action android:name="id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.REMINDER"/>
             </intent-filter>
         </receiver>
+
+        <service
+            android:name="id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.services.AlarmService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":remote" />
     </application>
 
 </manifest>

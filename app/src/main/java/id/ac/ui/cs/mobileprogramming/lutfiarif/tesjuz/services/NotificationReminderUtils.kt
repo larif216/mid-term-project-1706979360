@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.utils.reminder
+package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.services
 
 import android.app.Activity
 import android.app.AlarmManager
@@ -6,7 +6,9 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.util.Log
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.receiver.AlarmReminderReceiver
 import java.util.*
 
 class NotificationReminderUtils {
@@ -45,9 +47,8 @@ class NotificationReminderUtils {
         if (calendar.timeInMillis > 0) {
             val alarmManager = context?.getSystemService(Activity.ALARM_SERVICE) as AlarmManager
             val alarmIntent = Intent(context, AlarmReminderReceiver::class.java)
-            val sharedPref = context!!.getSharedPreferences("Tes Juz", Context.MODE_PRIVATE)
-            alarmIntent.putExtra("title", R.string.reminder)
-            alarmIntent.putExtra("message", R.string.reminder_message)
+            alarmIntent.putExtra("title", context!!.getString(R.string.reminder))
+            alarmIntent.putExtra("message", context!!.getString(R.string.reminder_message))
             alarmIntent.putExtra("notificationId", dayOfWeek)
             val pendingIntent = PendingIntent.getBroadcast(context, dayOfWeek, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT)
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, AlarmManager.INTERVAL_DAY * 7, pendingIntent)
