@@ -70,7 +70,7 @@ class JuzListFragment: Fragment(), JuzRecyclerViewAdapter.OnJuzClickListener {
         override fun onPreExecute() {
             super.onPreExecute()
             progressDialog = ProgressDialog(context)
-            progressDialog.setMessage("Getting Juz Data....")
+            progressDialog.setMessage(getString(R.string.getting_juz_data))
             progressDialog.setCancelable(false)
             progressDialog.show()
         }
@@ -85,7 +85,7 @@ class JuzListFragment: Fragment(), JuzRecyclerViewAdapter.OnJuzClickListener {
             progressDialog.dismiss()
 
             if (result!!.ayahs.isEmpty()) {
-                Toast.makeText(context, "Failed to get juz data", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getString(R.string.failed_to_get_juz_data), Toast.LENGTH_SHORT).show()
             } else {
                 val intent = Intent(requireActivity(), QuizActivity::class.java)
                 intent.putExtra("juzNumber", result.juz.number)

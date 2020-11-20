@@ -38,4 +38,6 @@
     <string name="wrong">Your answer is Wrong</string>
     <string name="score_2">Score:</string>
     <string name="question_label">Question</string>
+    <string name="getting_juz_data">Getting Juz Data....</string>
+    <string name="failed_to_get_juz_data">Failed to get juz data</string>
 </resources>
