@@ -1,12 +1,15 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
 @Entity(
     tableName = "ayah_table"
 )
+@Parcelize
 data class AyahModel (
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -23,4 +26,4 @@ data class AyahModel (
 
     @ColumnInfo(name = "juzNumber")
     var juzNumber: Int
-)
+): Parcelable

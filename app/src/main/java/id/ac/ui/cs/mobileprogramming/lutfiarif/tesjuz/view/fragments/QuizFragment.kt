@@ -32,11 +32,23 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
     private var ayahCounter = 0
     private var currentAyah = -1
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        retainInstance = true
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        if (savedInstanceState != null) {
+            questionNumber = savedInstanceState.getInt("questionNumber")
+            score = savedInstanceState.getInt("score")
+            ayahCounter = savedInstanceState.getInt("ayahCounter")
+            currentAyah = savedInstanceState.getInt("currentAyah")
+            question = savedInstanceState.getParcelable("question")!!
+        }
         return inflater.inflate(R.layout.fragment_quiz, container, false)
     }
 
@@ -49,18 +61,25 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
         if (view.option is RecyclerView) {
             view.option.layoutManager = LinearLayoutManager(context)
 
-            if (questionNumber == 0) {
-                questionNumber++
-                ayahCounter++
-                question = getQuestion()
-                adapter = QuizRecyclerViewAdapter(question.option, this)
+            if (savedInstanceState != null) {
                 tvQuestion = view.tvQuestion
                 rvOption = view.option
+                adapter = QuizRecyclerViewAdapter(question.option, this)
                 tvQuestion.text = question.question.text
                 rvOption.adapter = adapter
+            } else {
+                if (questionNumber == 0) {
+                    questionNumber++
+                    ayahCounter++
+                    question = getQuestion()
+                    adapter = QuizRecyclerViewAdapter(question.option, this)
+                    tvQuestion = view.tvQuestion
+                    rvOption = view.option
+                    tvQuestion.text = question.question.text
+                    rvOption.adapter = adapter
+                }
             }
         }
-
     }
 
     private fun getQuestion(): QuestionModel {
@@ -104,7 +123,7 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
         }
 
         if (ayahCounter == 8) {
-            if (questionNumber == 5) {
+            if (questionNumber == 1) {
                 val fragment = QuizResultFragment()
                 val args = Bundle()
                 args.putInt("juzNumber", juzData.juz.number)
@@ -127,5 +146,14 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
         adapter.updateData(question.option)
         tvQuestion.text = question.question.text
         rvOption.adapter!!.notifyDataSetChanged()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("questionNumber", questionNumber)
+        outState.putInt("score", score)
+        outState.putInt("ayahCounter", ayahCounter)
+        outState.putInt("currentAyah", currentAyah)
+        outState.putParcelable("question", question)
     }
 }

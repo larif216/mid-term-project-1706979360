@@ -37,4 +37,5 @@
     <string name="correct">Your answer is Correct</string>
     <string name="wrong">Your answer is Wrong</string>
     <string name="score_2">Score:</string>
+    <string name="question_label">Question</string>
 </resources>

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -23,12 +24,17 @@ class ReminderActivity: AppCompatActivity() {
 
         initTime()
 
+        if (savedInstanceState != null) {
+            timePicker.hour = savedInstanceState.getInt("savedHour")
+            timePicker.minute = savedInstanceState.getInt("savedMinute")
+        }
+
         btn_set_reminder.setOnClickListener {
             if (dayPicker.selectedDays.isNotEmpty()) {
                 val sharedPref = getSharedPreferences("Tes Juz", Context.MODE_PRIVATE)
-                val days = sharedPref.edit().putString("reminderDays", getDays(dayPicker.selectedDays)).apply()
-                val hour = sharedPref.edit().putInt("reminderHour", timePicker.hour.toInt()).apply()
-                val minute = sharedPref.edit().putInt("reminderMinute", timePicker.minute.toInt()).apply()
+                sharedPref.edit().putString("reminderDays", getDays(dayPicker.selectedDays)).apply()
+                sharedPref.edit().putInt("reminderHour", timePicker.hour.toInt()).apply()
+                sharedPref.edit().putInt("reminderMinute", timePicker.minute.toInt()).apply()
 
                 NotificationReminderUtils().setNotification(this)
 //                startService(Intent(this, AlarmService::class.java))
@@ -79,5 +85,12 @@ class ReminderActivity: AppCompatActivity() {
             }
         }
         return result
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("savedHour", timePicker.hour)
+        outState.putInt("savedMinute", timePicker.minute)
     }
 }
