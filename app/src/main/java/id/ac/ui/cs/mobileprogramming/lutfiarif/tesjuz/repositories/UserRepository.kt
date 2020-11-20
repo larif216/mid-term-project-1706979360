@@ -39,6 +39,10 @@ class UserRepository private constructor(private val userDao: UserDao, private v
         return userDao.getUserWithScores(username)
     }
 
+    fun getUser(username: String): UserModel? {
+        return userDao.getUser(username)
+    }
+
     companion object {
         private var instance: UserRepository? = null
 

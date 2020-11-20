@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.databases.TesJuzDatabase
+import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.UserModel
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.models.UserWithScores
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.repositories.UserRepository
 
@@ -26,6 +27,10 @@ class UserViewModel(context: Context): ViewModel() {
             userWithScoresLiveData =  userRepository.getUserWithScores(username)
         }
         return userWithScoresLiveData
+    }
+
+    internal fun getUser(username: String): UserModel? {
+        return userRepository.getUser(username)
     }
 
     internal fun updateScore(id: Int, username: String, score: Int, juzId: Int) {
