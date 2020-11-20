@@ -9,10 +9,14 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.VectorDrawable
 import android.media.AudioAttributes
 import android.media.RingtoneManager
 import android.os.Build
 import android.util.Log
+import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.toBitmap
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.R
 import id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.MainActivity
 
