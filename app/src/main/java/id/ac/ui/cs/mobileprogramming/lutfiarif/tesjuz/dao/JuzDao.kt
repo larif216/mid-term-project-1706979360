@@ -1,5 +1,6 @@
 package id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.dao
 
+import android.database.Cursor
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
@@ -16,4 +17,7 @@ interface JuzDao {
 
     @Query("SELECT * FROM juz_table WHERE number LIKE :juzNumber")
     fun getJuzWithAyahByNumber(juzNumber: Int): JuzWithAyah
+
+    @Query ("SELECT * FROM juz_table")
+    fun getJuzData(): Cursor
 }

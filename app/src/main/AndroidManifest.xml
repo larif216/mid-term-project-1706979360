@@ -49,6 +49,11 @@
             android:enabled="true"
             android:exported="false"
             android:process=":remote" />
+
+        <provider
+            android:authorities="id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.provider"
+            android:name=".provider.JuzContentProvider"
+            android:exported="true"/>
     </application>
 
 </manifest>
