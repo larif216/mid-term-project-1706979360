@@ -43,4 +43,5 @@
     <string name="alert_dialog_quit">Are you sure you want quit? Your progress will be lost.</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="capture_progress_report_card">Capture Progress Report Card</string>
 </resources>

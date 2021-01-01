@@ -43,4 +43,5 @@
     <string name="alert_dialog_quit">Apakah kamu yakin ingin keluar? Progress kamu tidak akan tersimpan.</string>
     <string name="yes">Iya</string>
     <string name="no">Tidak</string>
+    <string name="capture_progress_report_card">Foto Lembar Progres Hafalan</string>
 </resources>
