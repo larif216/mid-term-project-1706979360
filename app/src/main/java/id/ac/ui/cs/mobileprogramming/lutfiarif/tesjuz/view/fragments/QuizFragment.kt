@@ -137,7 +137,7 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
         }
 
         if (ayahCounter == 8) {
-            if (questionNumber == 1) {
+            if (questionNumber == 5) {
                 val fragment = QuizResultFragment()
                 val args = Bundle()
                 args.putInt("juzNumber", juzData.juz.number)
