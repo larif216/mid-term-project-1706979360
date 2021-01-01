@@ -14,8 +14,6 @@ data class QuestionModel(
         val alphabet: String,
         val option: String,
         val isAnswer: Boolean
-    ): Parcelable {
-
-    }
+    ): Parcelable
 
 }

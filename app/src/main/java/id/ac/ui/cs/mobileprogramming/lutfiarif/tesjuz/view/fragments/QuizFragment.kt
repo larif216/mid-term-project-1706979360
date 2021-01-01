@@ -31,7 +31,7 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
     private lateinit var tvQuestion: TextView
     private lateinit var rvOption: RecyclerView
     private var questionNumber = 0
-    private var score = 100
+    private var totalWrongAnswer = 0
     private var ayahCounter = 0
     private var currentAyah = -1
 
@@ -48,7 +48,7 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
     ): View? {
         if (savedInstanceState != null) {
             questionNumber = savedInstanceState.getInt("questionNumber")
-            score = savedInstanceState.getInt("score")
+            totalWrongAnswer = savedInstanceState.getInt("totalWrongAnswer")
             ayahCounter = savedInstanceState.getInt("ayahCounter")
             currentAyah = savedInstanceState.getInt("currentAyah")
             question = savedInstanceState.getParcelable("question")!!
@@ -132,16 +132,16 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
         if (option.isAnswer) {
             ToastUtils(context!!, R.string.correct, 1).show()
         } else {
-            score--
+            totalWrongAnswer++
             ToastUtils(context!!, R.string.wrong, 0).show()
         }
 
         if (ayahCounter == 8) {
-            if (questionNumber == 5) {
+            if (questionNumber == 1) {
                 val fragment = QuizResultFragment()
                 val args = Bundle()
                 args.putInt("juzNumber", juzData.juz.number)
-                args.putInt("score", score)
+                args.putInt("totalWrongAnswer", totalWrongAnswer)
                 args.putInt("scoreId", arguments!!.getInt("scoreId"))
                 fragment.arguments = args
                 requireActivity().supportFragmentManager.beginTransaction()
@@ -165,7 +165,7 @@ class QuizFragment: Fragment(), QuizRecyclerViewAdapter.OnOptionClickListener {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt("questionNumber", questionNumber)
-        outState.putInt("score", score)
+        outState.putInt("totalWrongAnswer", totalWrongAnswer)
         outState.putInt("ayahCounter", ayahCounter)
         outState.putInt("currentAyah", currentAyah)
         outState.putParcelable("question", question)

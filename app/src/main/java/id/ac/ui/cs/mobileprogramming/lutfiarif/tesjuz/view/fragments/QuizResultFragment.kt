@@ -15,6 +15,10 @@ class QuizResultFragment: Fragment() {
 
     private lateinit var userViewModel: UserViewModel
 
+    init {
+        System.loadLibrary("native-lib")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,7 +32,7 @@ class QuizResultFragment: Fragment() {
 
         val scoreId = arguments!!.getInt("scoreId")
         val username = requireActivity().getSharedPreferences("Tes Juz", Context.MODE_PRIVATE).getString("username", "")
-        val score = arguments!!.getInt("score")
+        val score = getFinalScore(arguments!!.getInt("totalWrongAnswer"))
         val juzNumber = arguments!!.getInt("juzNumber")
 
         userViewModel = ViewModelProviders.of(this, context?.let { UserViewModel.Factory(it) }).get(UserViewModel::class.java)
@@ -50,5 +54,7 @@ class QuizResultFragment: Fragment() {
             requireActivity().finish()
         }
     }
+
+    private external fun getFinalScore(wrongAnswer: Int): Int
 
 }
