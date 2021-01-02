@@ -44,4 +44,6 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="capture_progress_report_card">Capture Progress Report Card</string>
+    <string name="about_app">About App</string>
+    <string name="help_you_interact_more_with_holy_quran">Help you interact more with The Holy Quran.</string>
 </resources>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz">
 
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
@@ -38,6 +40,8 @@
             android:name=".view.ReminderActivity"/>
         <activity
             android:name=".view.QuizActivity"/>
+        <activity
+            android:name=".view.AboutActivity"/>
 
         <receiver android:name=".receiver.AlarmReminderReceiver"
             android:enabled="true"

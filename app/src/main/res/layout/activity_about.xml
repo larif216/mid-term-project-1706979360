@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.AboutActivity">
+
+    <id.ac.ui.cs.mobileprogramming.lutfiarif.tesjuz.view.opengl.OpenGLView
+        android:id="@+id/openGLView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:layout_alignStart="@+id/openGLView"
+        android:layout_alignEnd="@+id/openGLView"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/ic_launcher_foreground"/>
+
+        <TextView
+            android:id="@+id/textViewAppTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/app_name"
+            android:gravity="center_horizontal"
+            android:textSize="40sp"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/textViewAppDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/help_you_interact_more_with_holy_quran"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

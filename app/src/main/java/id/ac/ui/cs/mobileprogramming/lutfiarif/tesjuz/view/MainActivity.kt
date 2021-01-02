@@ -51,7 +51,9 @@ class MainActivity : AppCompatActivity() {
         if (id == R.id.set_reminder_option) {
             startActivity(Intent(this, ReminderActivity::class.java))
             return true
-        } else if (id == R.id.take_photo_option) {
+        } else if (id == R.id.about_option) {
+            startActivity(Intent(this, AboutActivity::class.java))
+        }else if (id == R.id.take_photo_option) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(this, arrayOf(CAMERA), 1)

@@ -44,4 +44,6 @@
     <string name="yes">Iya</string>
     <string name="no">Tidak</string>
     <string name="capture_progress_report_card">Foto Lembar Progres Hafalan</string>
+    <string name="about_app">tentang Aplikasi</string>
+    <string name="help_you_interact_more_with_holy_quran">Membantumu berinteraksi lebih dengan Al-Quran.</string>
 </resources>
