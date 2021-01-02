@@ -16,6 +16,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Environment
 import android.provider.MediaStore
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import java.io.File
 import java.io.FileOutputStream
@@ -90,5 +91,6 @@ class MainActivity : AppCompatActivity() {
         val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val fileName = "Progress Report Card-${timeStamp}"
         MediaStore.Images.Media.insertImage(contentResolver, capturedBitmap, fileName, "Image of $fileName")
+        Toast.makeText(applicationContext, "Image saved to gallery", Toast.LENGTH_SHORT).show()
     }
 }
